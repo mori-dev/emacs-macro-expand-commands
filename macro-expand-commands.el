@@ -27,7 +27,7 @@
 ;;; Commentary:
 
 ;;; Change Log
-;; 0.0.2 q で macro-expand-commands-output-buffer-name を削除できるように変更
+;; 0.0.2 q で macro-expand-commands-output-buffer-name を削除できるように変更 (k.mori)
 ;; 0.0.1 First released.
 
 ;; Call comannd at the beggining of sexp.
@@ -94,7 +94,7 @@
     (let ((ret (eval (car (read-from-string
                            (format "(%s  %s)" pp-macro-name sexp))))))
       (let ((outbuf (get-buffer-create macro-expand-commands-output-buffer-name)))
-        (with-current-buffer outbuf          
+        (with-current-buffer outbuf
           (erase-buffer)
           (emacs-lisp-mode)
           (insert (format "%s" ret))
